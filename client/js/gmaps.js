@@ -2081,7 +2081,7 @@ GMaps.geolocate = function(options) {
     }
   }
 };
-
+GMaps.arrayToLatLng = arrayToLatLng;
 GMaps.geocode = function(options) {
   this.geocoder = new google.maps.Geocoder();
   var callback = options.callback;

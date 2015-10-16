@@ -36,7 +36,10 @@
          <div id="demo" class="col-xs-12">
            
          </div>
+         
       </div>
+       <div class="page-heder"><h2>Result</h2></div>
+       <div id="message"></div>
       <div class="page-header"><h2>GEOFENCES MAP</h2></div>
       <div class="row">
         <div id="geofences" class="col-xs-12"></div>
@@ -130,9 +133,9 @@
                 var isInside = mapWithGeofences.checkGeofence(position.coords.latitude, position.coords.longitude, polygon);
                 
                 if(isInside){
-                  alert('You in GM Land!! Inovation starts here!');
+                  $('#message').text('Your in GM Land!');
                 } else {
-                  alert('You are outside the GM zone. :(');
+                  $('#message').text('You are outside the GM zone. :(');
                 }
                
             };
