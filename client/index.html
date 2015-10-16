@@ -42,11 +42,37 @@
         <div id="geofences" class="col-xs-12"></div>
       </div>
     </div>
+      <script src="js/jquery.min.js"></script>
 
         <script type="text/javascript">
           var gposition;
           var map;
           var x = document.getElementById("demo");
+          
+          $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyAYBZQlfoJkd1r-3BBatOatSnDJMgYG1i0&callback=myCallBack", function(data, textStatus, jqxhr){
+            //console.log( data ); // Data returned
+            console.log( textStatus ); // Success
+            console.log( jqxhr.status ); // 200
+            console.log( "Load was performed." );
+          });
+            
+          var myCallBack = function(){
+            $.getScript("./js/gmaps.js", function(_data, _textStatus, _jqxhr){
+              //console.log( _data ); // Data returned
+              console.log( _textStatus ); // Success
+              console.log( _jqxhr.status ); // 200
+              console.log( "Load was performed. 2" );
+              $.getScript("./js/gmaps.geofences.js", function(ddata, dtextStatus, djqxhr){
+               //console.log( ddata ); // Data returned
+                console.log( dtextStatus ); // Success
+                console.log( djqxhr.status ); // 200
+                console.log( "Load was performed. 3" );
+                 initMap();
+              });
+            });
+          };
+          
+          
           function initMap() {
              getLocation();
             function getLocation() {
@@ -107,10 +133,6 @@
           };
 
     </script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYBZQlfoJkd1r-3BBatOatSnDJMgYG1i0&callback=initMap"></script>
-     <script defer src="/js/gmaps.js"></script>
-     <script defer src="/js/gmaps.geofences.js"></script>
-    <!--  <script src="/js/main.js"></script> -->
   
   </body>
 </html>
