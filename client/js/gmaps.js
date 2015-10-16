@@ -2055,7 +2055,6 @@ GMaps.fire = function(event_name, object, scope) {
     }
   }
 };
-GMaps.arrayToLatLng = arrayToLatLng;
 GMaps.geolocate = function(options) {
   var complete_callback = options.always || options.complete;
 
